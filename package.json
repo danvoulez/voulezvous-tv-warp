@@ -1,0 +1,23 @@
+{
+  "name": "vvtv-platform",
+  "version": "0.1.0",
+  "private": true,
+  "description": "VVTV / Voulezvous Platform - Phase 0 foundation scaffold",
+  "type": "module",
+  "scripts": {
+    "validate:config": "node ./tools/validate-config.mjs",
+    "validate:contracts": "node ./tools/validate-contracts.mjs",
+    "validate:policy": "node ./tools/validate-policy.mjs",
+    "check:contracts-drift": "node ./tools/check-contracts-drift.mjs",
+    "test:invariants": "node ./tools/test-invariants.mjs",
+    "test:auth-baseline": "node ./tools/test-auth-baseline.mjs",
+    "test:runtime-guards": "node ./tools/test-runtime-guards.mjs",
+    "generate:types": "node ./tools/generate-types.mjs",
+    "check:boundaries": "node ./tools/check-boundaries.mjs",
+    "check:release-readiness": "node ./tools/check-release-readiness.mjs",
+    "check:merge-train": "node ./tools/check-merge-train.mjs",
+    "check:evidence-bundle": "node ./tools/check-evidence-bundle.mjs",
+    "evidence:phase0": "node ./tools/evidence-phase0.mjs",
+    "ci:phase0": "npm run validate:config && npm run validate:contracts && npm run validate:policy && npm run check:contracts-drift && npm run test:invariants && npm run test:auth-baseline && npm run test:runtime-guards && npm run generate:types && npm run check:boundaries && npm run check:release-readiness && npm run check:merge-train && npm run check:evidence-bundle && npm run evidence:phase0"
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "phase": "0",
+  "generatedAt": "2026-03-01T07:43:44.587Z",
+  "status": "pass",
+  "summary": {
+    "totalChecks": 14,
+    "passedChecks": 14,
+    "failedChecks": 0
+  },
+  "checks": [
+    {
+      "name": "config_files_present",
+      "pass": true
+    },
+    {
+      "name": "contracts_present",
+      "pass": true
+    },
+    {
+      "name": "contracts_baseline_present",
+      "pass": true
+    },
+    {
+      "name": "policy_manifest_present",
+      "pass": true
+    },
+    {
+      "name": "release_readiness_report_present",
+      "pass": true
+    },
+    {
+      "name": "merge_train_report_present",
+      "pass": true
+    },
+    {
+      "name": "evidence_bundle_report_present",
+      "pass": true
+    },
+    {
+      "name": "auth_baseline_report_present",
+      "pass": true
+    },
+    {
+      "name": "runtime_guards_report_present",
+      "pass": true
+    },
+    {
+      "name": "types_generated",
+      "pass": true
+    },
+    {
+      "name": "invariants_test_fixture_present",
+      "pass": true
+    },
+    {
+      "name": "thumb_audio_disabled_rule_present",
+      "pass": true
+    },
+    {
+      "name": "party_route_present",
+      "pass": true
+    },
+    {
+      "name": "random_skip_min_time_present",
+      "pass": true
+    }
+  ],
+  "failedChecks": [],
+  "artifacts": [
+    "config/media-profiles.yaml",
+    "config/mode-manifests.yaml",
+    "config/cost-tiers.yaml",
+    "schemas/config/media-profiles.schema.v1.json",
+    "schemas/config/mode-manifests.schema.v1.json",
+    "schemas/config/cost-tiers.schema.v1.json",
+    "schemas/openapi/session.v1.json",
+    "schemas/events/events.v1.json",
+    "contracts/openapi/session.v1.baseline.json",
+    "contracts/events/events.v1.baseline.json",
+    "policies/autonomy-policy.v1.json",
+    "reports/phase0-readiness.json",
+    "reports/phase0-merge-train.json",
+    "reports/phase0-evidence-bundle.json",
+    "reports/phase0-auth-baseline.json",
+    "reports/phase0-runtime-guards.json",
+    "packages/sdk/generated/types.ts"
+  ],
+  "artifactHashes": [
+    {
+      "path": "config/media-profiles.yaml",
+      "sha256": "b7e03e223df39714ab6afafd5c9d41647945d125ed5629145e5e36ff77cf9be4"
+    },
+    {
+      "path": "config/mode-manifests.yaml",
+      "sha256": "6abadfb7a51882e19dee6071198384e1d475b1350dc845e2f11896021cdea985"
+    },
+    {
+      "path": "config/cost-tiers.yaml",
+      "sha256": "049935b9ed730716a696c7c8b7ff752af7de7164575b48bd477c45d588606681"
+    },
+    {
+      "path": "schemas/config/media-profiles.schema.v1.json",
+      "sha256": "50ff7023f9a21fd2b266ae9a3e92b39c7be2727106d72da707fb88263848f36c"
+    },
+    {
+      "path": "schemas/config/mode-manifests.schema.v1.json",
+      "sha256": "6f945fa942acb5ab1dd6a5e0591f84820ffce2fc29ef28a835c5952dac3150a7"
+    },
+    {
+      "path": "schemas/config/cost-tiers.schema.v1.json",
+      "sha256": "5a2d849dc73a866fdc9cc4e13526c6495524f33811f444882e62f1da66e66c68"
+    },
+    {
+      "path": "schemas/openapi/session.v1.json",
+      "sha256": "25b85f79b667555b66869a0c4ee402e60128627d6e5997026922d4997990953e"
+    },
+    {
+      "path": "schemas/events/events.v1.json",
+      "sha256": "46e40ab8ae1ab976ebfff8a9948fcf4a58187f055fba968864fc12f64227a7be"
+    },
+    {
+      "path": "contracts/openapi/session.v1.baseline.json",
+      "sha256": "25b85f79b667555b66869a0c4ee402e60128627d6e5997026922d4997990953e"
+    },
+    {
+      "path": "contracts/events/events.v1.baseline.json",
+      "sha256": "46e40ab8ae1ab976ebfff8a9948fcf4a58187f055fba968864fc12f64227a7be"
+    },
+    {
+      "path": "policies/autonomy-policy.v1.json",
+      "sha256": "a4deefa35c829e855388e1b4b33c75d2eb5c61be0e5a760cff3f9e98ba3a47a9"
+    },
+    {
+      "path": "reports/phase0-readiness.json",
+      "sha256": "f46a8e8981b95ceeeb684837a940b22248d742d2ddb800b1b8cbba463fb7fa2f"
+    },
+    {
+      "path": "reports/phase0-merge-train.json",
+      "sha256": "43d7a791150f192763c5a6730ba4eb581b38b81dae11302d2801fcc72dad72d8"
+    },
+    {
+      "path": "reports/phase0-evidence-bundle.json",
+      "sha256": "2f2200c112d71f4849cf11fb85e76128190b252dde37727532a4b345f78f5b69"
+    },
+    {
+      "path": "reports/phase0-auth-baseline.json",
+      "sha256": "c5429a1b84bbc72e0fc949752b5ad23de907f281d60d9d5fb6797402a3c48a7e"
+    },
+    {
+      "path": "reports/phase0-runtime-guards.json",
+      "sha256": "1ab0ab4c49181770f41c4692caf4ff02d6f7a41b77db76409c84d09a5887dffa"
+    },
+    {
+      "path": "packages/sdk/generated/types.ts",
+      "sha256": "a5ed97bca1e0d82d8e2d276f4c705d24efa89318eed5a70f330b2f5a5456c9b1"
+    }
+  ],
+  "commands": [
+    "npm run validate:config",
+    "npm run validate:contracts",
+    "npm run validate:policy",
+    "npm run check:contracts-drift",
+    "npm run test:invariants",
+    "npm run test:auth-baseline",
+    "npm run test:runtime-guards",
+    "npm run generate:types",
+    "npm run check:boundaries",
+    "npm run check:release-readiness",
+    "npm run check:merge-train",
+    "npm run check:evidence-bundle"
+  ]
+}

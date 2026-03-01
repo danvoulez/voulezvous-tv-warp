@@ -1,0 +1,17 @@
+profiles:
+  thumb_low:
+    video:
+      width: 320
+      height: 180
+      fps: 8
+      max_bitrate_kbps: 180
+    audio:
+      enabled: false
+  call_random_fast:
+    video:
+      width: 640
+      height: 360
+      fps: 24
+      max_bitrate_kbps: 900
+    audio:
+      enabled: true

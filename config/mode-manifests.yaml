@@ -1,0 +1,10 @@
+modes:
+  broadcast:
+    route: /
+    required_capabilities: [broadcast]
+  party:
+    route: /party
+    required_capabilities: [presence, chat, broadcast]
+  random:
+    route: /random
+    required_capabilities: [matching, session, webrtc]

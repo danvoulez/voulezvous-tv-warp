@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Media Profiles Config Schema v1",
+  "type": "object",
+  "required": ["profiles"],
+  "properties": {
+    "profiles": {
+      "type": "object",
+      "required": ["thumb_low", "call_random_fast"],
+      "properties": {
+        "thumb_low": { "type": "object" },
+        "call_random_fast": { "type": "object" }
+      }
+    }
+  }
+}

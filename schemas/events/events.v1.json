@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "VVTV Event Envelope v1",
+  "type": "object",
+  "required": ["type", "payload", "ts"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "presence.update",
+        "session.created",
+        "match.found",
+        "chat.message",
+        "consent.request",
+        "consent.response"
+      ]
+    },
+    "payload": {
+      "type": "object"
+    },
+    "ts": {
+      "type": "string"
+    }
+  }
+}

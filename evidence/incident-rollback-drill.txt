@@ -1,0 +1,2 @@
+Phase 0 incident/rollback drill placeholder
+- Non-runtime phase: simulated rollback via branch reset procedure documented

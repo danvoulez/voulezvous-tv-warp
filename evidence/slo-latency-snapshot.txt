@@ -1,0 +1,3 @@
+Phase 0 SLO/latency snapshot placeholder
+- Scope: scaffold validation pipeline
+- p50/p95/p99 placeholders pending runtime services in later phases
