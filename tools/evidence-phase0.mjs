@@ -19,6 +19,7 @@ const checks = [
   { name: "contracts_baseline_present", pass: fs.existsSync(path.join(root, "contracts/openapi/session.v1.baseline.json")) && fs.existsSync(path.join(root, "contracts/events/events.v1.baseline.json")) },
   { name: "policy_manifest_present", pass: fs.existsSync(path.join(root, "policies/autonomy-policy.v1.json")) },
   { name: "release_readiness_report_present", pass: fs.existsSync(path.join(root, "reports/phase0-readiness.json")) },
+  { name: "merge_train_report_present", pass: fs.existsSync(path.join(root, "reports/phase0-merge-train.json")) },
   { name: "types_generated", pass: fs.existsSync(generatedTypesPath) },
   { name: "invariants_test_fixture_present", pass: fs.existsSync(path.join(root, "tests/fixtures/negative/media-profiles.invalid.yaml")) && fs.existsSync(path.join(root, "tests/fixtures/negative/events.invalid.v1.json")) },
   { name: "thumb_audio_disabled_rule_present", pass: fs.readFileSync(mediaConfigPath, "utf8").includes("enabled: false") },
@@ -40,6 +41,7 @@ const artifactPaths = [
   "contracts/events/events.v1.baseline.json",
   "policies/autonomy-policy.v1.json",
   "reports/phase0-readiness.json",
+  "reports/phase0-merge-train.json",
   "packages/sdk/generated/types.ts"
 ];
 const artifactHashes = artifactPaths.map((rel) => {
@@ -69,7 +71,8 @@ const evidence = {
     "npm run test:invariants",
     "npm run generate:types",
     "npm run check:boundaries",
-    "npm run check:release-readiness"
+    "npm run check:release-readiness",
+    "npm run check:merge-train"
   ]
 };
 
@@ -93,6 +96,16 @@ const readinessPath = path.join(root, "reports/phase0-readiness.json");
 if (fs.existsSync(readinessPath)) {
   const readiness = JSON.parse(fs.readFileSync(readinessPath, "utf8"));
   txtLines.push("", `Release Readiness Decision: ${readiness.decision}`, `Readiness Reason: ${readiness.reason}`);
+}
+const mergeTrainPath = path.join(root, "reports/phase0-merge-train.json");
+if (fs.existsSync(mergeTrainPath)) {
+  const mt = JSON.parse(fs.readFileSync(mergeTrainPath, "utf8"));
+  txtLines.push(
+    "",
+    `Merge-Train Status: ${mt.mergeTrainStatus}`,
+    `Auto-Merge Eligibility: ${mt.autoMergeEligible ? "ELIGIBLE" : "NOT_ELIGIBLE"}`,
+    `Inflection Manual Gate: ${mt.inflectionManualGate ? "REQUIRED" : "NOT_REQUIRED"}`
+  );
 }
 const txtOutPath = path.join(reportsDir, "phase0-evidence.txt");
 fs.writeFileSync(txtOutPath, txtLines.join("\n"), "utf8");

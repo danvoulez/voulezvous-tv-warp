@@ -13,7 +13,8 @@
     "generate:types": "node ./tools/generate-types.mjs",
     "check:boundaries": "node ./tools/check-boundaries.mjs",
     "check:release-readiness": "node ./tools/check-release-readiness.mjs",
+    "check:merge-train": "node ./tools/check-merge-train.mjs",
     "evidence:phase0": "node ./tools/evidence-phase0.mjs",
-    "ci:phase0": "npm run validate:config && npm run validate:contracts && npm run validate:policy && npm run check:contracts-drift && npm run test:invariants && npm run generate:types && npm run check:boundaries && npm run check:release-readiness && npm run evidence:phase0"
+    "ci:phase0": "npm run validate:config && npm run validate:contracts && npm run validate:policy && npm run check:contracts-drift && npm run test:invariants && npm run generate:types && npm run check:boundaries && npm run check:release-readiness && npm run check:merge-train && npm run evidence:phase0"
   }
 }

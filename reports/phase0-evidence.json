@@ -1,10 +1,10 @@
 {
   "phase": "0",
-  "generatedAt": "2026-03-01T06:49:26.679Z",
+  "generatedAt": "2026-03-01T06:52:03.458Z",
   "status": "pass",
   "summary": {
-    "totalChecks": 10,
-    "passedChecks": 10,
+    "totalChecks": 11,
+    "passedChecks": 11,
     "failedChecks": 0
   },
   "checks": [
@@ -26,6 +26,10 @@
     },
     {
       "name": "release_readiness_report_present",
+      "pass": true
+    },
+    {
+      "name": "merge_train_report_present",
       "pass": true
     },
     {
@@ -63,6 +67,7 @@
     "contracts/events/events.v1.baseline.json",
     "policies/autonomy-policy.v1.json",
     "reports/phase0-readiness.json",
+    "reports/phase0-merge-train.json",
     "packages/sdk/generated/types.ts"
   ],
   "artifactHashes": [
@@ -112,7 +117,11 @@
     },
     {
       "path": "reports/phase0-readiness.json",
-      "sha256": "816c67bb02e1a392e87cd726ebd4d78ee90559c8ff3de85293b1ab02cc4f8353"
+      "sha256": "a01dd134f8ebde91b4f8a41c117fc2f3cfe56aa50b0218aafd1e8cb9de8d9a74"
+    },
+    {
+      "path": "reports/phase0-merge-train.json",
+      "sha256": "e5d8f61e354b5cb13205e95984737a50ba27634f04be96205fe463ef9b964241"
     },
     {
       "path": "packages/sdk/generated/types.ts",
@@ -127,6 +136,7 @@
     "npm run test:invariants",
     "npm run generate:types",
     "npm run check:boundaries",
-    "npm run check:release-readiness"
+    "npm run check:release-readiness",
+    "npm run check:merge-train"
   ]
 }
