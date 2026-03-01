@@ -15,42 +15,65 @@ for (const rel of files) {
     process.exit(1);
   }
 }
-
 const media = fs.readFileSync(path.join(root, "config/media-profiles.yaml"), "utf8");
-if (!media.includes("thumb_low")) {
+const modes = fs.readFileSync(path.join(root, "config/mode-manifests.yaml"), "utf8");
+const cost = fs.readFileSync(path.join(root, "config/cost-tiers.yaml"), "utf8");
+
+function findLine(lines, pattern) {
+  return lines.findIndex((l) => l.includes(pattern));
+}
+
+const mediaLines = media.split("\n");
+const thumbIdx = findLine(mediaLines, "thumb_low:");
+const callRandomIdx = findLine(mediaLines, "call_random_fast:");
+if (thumbIdx < 0) {
   console.error("[validate:config] thumb_low profile missing");
   process.exit(1);
 }
-if (!media.includes("audio:\n      enabled: false")) {
-  console.error("[validate:config] thumb_low must have audio disabled");
-  process.exit(1);
-}
-if (!media.includes("call_random_fast")) {
+if (callRandomIdx < 0) {
   console.error("[validate:config] call_random_fast profile missing");
   process.exit(1);
 }
-
-const modes = fs.readFileSync(path.join(root, "config/mode-manifests.yaml"), "utf8");
-if (!modes.includes("party") || !modes.includes("/party")) {
-  console.error("[validate:config] party route definition missing");
-  process.exit(1);
-}
-if (!modes.includes("broadcast") || !modes.includes("route: /")) {
-  console.error("[validate:config] broadcast route definition missing");
-  process.exit(1);
-}
-if (!modes.includes("required_capabilities")) {
-  console.error("[validate:config] required_capabilities missing in mode manifest");
+const thumbSegment = mediaLines.slice(thumbIdx, callRandomIdx > thumbIdx ? callRandomIdx : thumbIdx + 20).join("\n");
+if (!thumbSegment.includes("audio:") || !thumbSegment.includes("enabled: false")) {
+  console.error("[validate:config] thumb_low must define audio.enabled=false");
   process.exit(1);
 }
 
-const cost = fs.readFileSync(path.join(root, "config/cost-tiers.yaml"), "utf8");
-if (!cost.includes("min_time_before_skip_ms: 2000")) {
-  console.error("[validate:config] min_time_before_skip_ms must be present");
+const modeLines = modes.split("\n");
+const broadcastIdx = findLine(modeLines, "broadcast:");
+const partyIdx = findLine(modeLines, "party:");
+const randomIdx = findLine(modeLines, "random:");
+if (broadcastIdx < 0 || partyIdx < 0 || randomIdx < 0) {
+  console.error("[validate:config] broadcast/party/random mode definitions are required");
   process.exit(1);
 }
-if (!cost.includes("COST_LOW") || !cost.includes("QUARANTINE")) {
+const broadcastSegment = modeLines.slice(broadcastIdx, partyIdx).join("\n");
+if (!broadcastSegment.includes("route: /") || !broadcastSegment.includes("required_capabilities")) {
+  console.error("[validate:config] broadcast mode must define route and required_capabilities");
+  process.exit(1);
+}
+const partySegment = modeLines.slice(partyIdx, randomIdx).join("\n");
+if (!partySegment.includes("route: /party") || !partySegment.includes("required_capabilities")) {
+  console.error("[validate:config] party mode must define route and required_capabilities");
+  process.exit(1);
+}
+
+const costLines = cost.split("\n");
+const lowIdx = findLine(costLines, "COST_LOW:");
+const quarantineIdx = findLine(costLines, "QUARANTINE:");
+if (lowIdx < 0 || quarantineIdx < 0) {
   console.error("[validate:config] COST_LOW and QUARANTINE tiers are required");
+  process.exit(1);
+}
+const lowSegment = costLines.slice(lowIdx, quarantineIdx).join("\n");
+if (!lowSegment.includes("min_time_before_skip_ms: 2000")) {
+  console.error("[validate:config] COST_LOW.random.min_time_before_skip_ms must be 2000");
+  process.exit(1);
+}
+const quarantineSegment = costLines.slice(quarantineIdx).join("\n");
+if (!quarantineSegment.includes("min_time_before_skip_ms: 2000")) {
+  console.error("[validate:config] QUARANTINE.random.min_time_before_skip_ms must be 2000");
   process.exit(1);
 }
 

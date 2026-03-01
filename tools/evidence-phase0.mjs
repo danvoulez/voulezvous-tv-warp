@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import crypto from "node:crypto";
 
 const root = path.resolve(process.cwd());
 const reportsDir = path.join(root, "reports");
@@ -22,20 +23,33 @@ const checks = [
 ];
 
 const failed = checks.filter((c) => !c.pass).map((c) => c.name);
+const artifactPaths = [
+  "config/media-profiles.yaml",
+  "config/mode-manifests.yaml",
+  "config/cost-tiers.yaml",
+  "schemas/openapi/session.v1.json",
+  "schemas/events/events.v1.json",
+  "packages/sdk/generated/types.ts"
+];
+const artifactHashes = artifactPaths.map((rel) => {
+  const full = path.join(root, rel);
+  const bytes = fs.readFileSync(full);
+  const sha256 = crypto.createHash("sha256").update(bytes).digest("hex");
+  return { path: rel, sha256 };
+});
 const evidence = {
   phase: "0",
   generatedAt: new Date().toISOString(),
   status: failed.length === 0 ? "pass" : "fail",
+  summary: {
+    totalChecks: checks.length,
+    passedChecks: checks.length - failed.length,
+    failedChecks: failed.length
+  },
   checks,
   failedChecks: failed,
-  artifacts: [
-    "config/media-profiles.yaml",
-    "config/mode-manifests.yaml",
-    "config/cost-tiers.yaml",
-    "schemas/openapi/session.v1.json",
-    "schemas/events/events.v1.json",
-    "packages/sdk/generated/types.ts"
-  ],
+  artifacts: artifactPaths,
+  artifactHashes,
   commands: [
     "npm run validate:config",
     "npm run validate:contracts",

@@ -1,7 +1,12 @@
 {
   "phase": "0",
-  "generatedAt": "2026-03-01T06:33:41.230Z",
+  "generatedAt": "2026-03-01T06:40:45.989Z",
   "status": "pass",
+  "summary": {
+    "totalChecks": 6,
+    "passedChecks": 6,
+    "failedChecks": 0
+  },
   "checks": [
     {
       "name": "config_files_present",
@@ -36,6 +41,32 @@
     "schemas/openapi/session.v1.json",
     "schemas/events/events.v1.json",
     "packages/sdk/generated/types.ts"
+  ],
+  "artifactHashes": [
+    {
+      "path": "config/media-profiles.yaml",
+      "sha256": "b7e03e223df39714ab6afafd5c9d41647945d125ed5629145e5e36ff77cf9be4"
+    },
+    {
+      "path": "config/mode-manifests.yaml",
+      "sha256": "6abadfb7a51882e19dee6071198384e1d475b1350dc845e2f11896021cdea985"
+    },
+    {
+      "path": "config/cost-tiers.yaml",
+      "sha256": "049935b9ed730716a696c7c8b7ff752af7de7164575b48bd477c45d588606681"
+    },
+    {
+      "path": "schemas/openapi/session.v1.json",
+      "sha256": "25b85f79b667555b66869a0c4ee402e60128627d6e5997026922d4997990953e"
+    },
+    {
+      "path": "schemas/events/events.v1.json",
+      "sha256": "46e40ab8ae1ab976ebfff8a9948fcf4a58187f055fba968864fc12f64227a7be"
+    },
+    {
+      "path": "packages/sdk/generated/types.ts",
+      "sha256": "6e7077d016a63595b503f4d3395c683b1ac8cdf888538312da80f049a099965f"
+    }
   ],
   "commands": [
     "npm run validate:config",
