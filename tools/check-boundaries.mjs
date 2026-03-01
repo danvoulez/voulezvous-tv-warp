@@ -10,6 +10,7 @@ const mustExist = [
   "packages/sdk",
   "packages/ui-kit",
   "apps/web",
+  "services/auth",
   "services/session-orchestrator",
   "lab"
 ];

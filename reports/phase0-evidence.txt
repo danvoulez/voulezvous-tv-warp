@@ -1,7 +1,7 @@
 VVTV Phase 0 Evidence Report
-Generated: 2026-03-01T06:54:50.143Z
+Generated: 2026-03-01T07:37:50.382Z
 Status: PASS
-Checks: 12/12 passed
+Checks: 13/13 passed
 
 Checks:
 - config_files_present: PASS
@@ -11,6 +11,7 @@ Checks:
 - release_readiness_report_present: PASS
 - merge_train_report_present: PASS
 - evidence_bundle_report_present: PASS
+- auth_baseline_report_present: PASS
 - types_generated: PASS
 - invariants_test_fixture_present: PASS
 - thumb_audio_disabled_rule_present: PASS
@@ -29,10 +30,11 @@ Artifacts (sha256):
 - contracts/openapi/session.v1.baseline.json: 25b85f79b667555b66869a0c4ee402e60128627d6e5997026922d4997990953e
 - contracts/events/events.v1.baseline.json: 46e40ab8ae1ab976ebfff8a9948fcf4a58187f055fba968864fc12f64227a7be
 - policies/autonomy-policy.v1.json: a4deefa35c829e855388e1b4b33c75d2eb5c61be0e5a760cff3f9e98ba3a47a9
-- reports/phase0-readiness.json: 1ff8fb1b706213ab1313ea680834ea9d6bf791b3eac19b2697199ed9118ce9ee
-- reports/phase0-merge-train.json: 79c43810c6c5e3d139ece01d33cf0cc228431ed37fd6326e5e70d2c6e0822f2f
-- reports/phase0-evidence-bundle.json: 150e44a1291760ca547885cea9c63f17ac56740887a2832804744cd2c15aa59e
-- packages/sdk/generated/types.ts: 6e7077d016a63595b503f4d3395c683b1ac8cdf888538312da80f049a099965f
+- reports/phase0-readiness.json: 59a26964b98188d467c32f1e254a4009ae75e428673487cee28a49f343006ce7
+- reports/phase0-merge-train.json: 7e4d40c504f3a5e553cc90a66703ab028535ad2dc7f2cadc51855615b2ca650f
+- reports/phase0-evidence-bundle.json: cb2f9313596b80f62be99ebb5713c5e3ac98b882cfaa91c430df134c1bf2c95f
+- reports/phase0-auth-baseline.json: 26a75d42862537a56de7669a786b92620250f23a392b38c21b86e02a346cf818
+- packages/sdk/generated/types.ts: a5ed97bca1e0d82d8e2d276f4c705d24efa89318eed5a70f330b2f5a5456c9b1
 
 Release Readiness Decision: GO
 Readiness Reason: All required phase0 readiness artifacts are present.
@@ -40,6 +42,9 @@ Readiness Reason: All required phase0 readiness artifacts are present.
 Merge-Train Status: GREEN
 Auto-Merge Eligibility: ELIGIBLE
 Inflection Manual Gate: NOT_REQUIRED
+
+Auth Baseline Decision: GO
+Auth Context Required Fields: user_id, session_id, flags.is_new_account, flags.is_quarantined, flags.is_banned
 
 Evidence Bundle Decision: GO
 Evidence Bundle Completeness: 100%

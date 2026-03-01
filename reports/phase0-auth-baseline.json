@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-03-01T07:37:47.385Z",
+  "decision": "GO",
+  "requiredContextFields": [
+    "user_id",
+    "session_id",
+    "flags.is_new_account",
+    "flags.is_quarantined",
+    "flags.is_banned"
+  ],
+  "checks": [
+    "bearer_parse",
+    "token_decode",
+    "context_build",
+    "presence_guard",
+    "chat_guard",
+    "random_guard",
+    "quarantine_random_restriction",
+    "banned_restriction",
+    "invalid_token_rejected"
+  ]
+}

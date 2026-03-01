@@ -21,6 +21,7 @@ const checks = [
   { name: "release_readiness_report_present", pass: fs.existsSync(path.join(root, "reports/phase0-readiness.json")) },
   { name: "merge_train_report_present", pass: fs.existsSync(path.join(root, "reports/phase0-merge-train.json")) },
   { name: "evidence_bundle_report_present", pass: fs.existsSync(path.join(root, "reports/phase0-evidence-bundle.json")) },
+  { name: "auth_baseline_report_present", pass: fs.existsSync(path.join(root, "reports/phase0-auth-baseline.json")) },
   { name: "types_generated", pass: fs.existsSync(generatedTypesPath) },
   { name: "invariants_test_fixture_present", pass: fs.existsSync(path.join(root, "tests/fixtures/negative/media-profiles.invalid.yaml")) && fs.existsSync(path.join(root, "tests/fixtures/negative/events.invalid.v1.json")) },
   { name: "thumb_audio_disabled_rule_present", pass: fs.readFileSync(mediaConfigPath, "utf8").includes("enabled: false") },
@@ -44,6 +45,7 @@ const artifactPaths = [
   "reports/phase0-readiness.json",
   "reports/phase0-merge-train.json",
   "reports/phase0-evidence-bundle.json",
+  "reports/phase0-auth-baseline.json",
   "packages/sdk/generated/types.ts"
 ];
 const artifactHashes = artifactPaths.map((rel) => {
@@ -71,6 +73,7 @@ const evidence = {
     "npm run validate:policy",
     "npm run check:contracts-drift",
     "npm run test:invariants",
+    "npm run test:auth-baseline",
     "npm run generate:types",
     "npm run check:boundaries",
     "npm run check:release-readiness",
@@ -108,6 +111,15 @@ if (fs.existsSync(mergeTrainPath)) {
     `Merge-Train Status: ${mt.mergeTrainStatus}`,
     `Auto-Merge Eligibility: ${mt.autoMergeEligible ? "ELIGIBLE" : "NOT_ELIGIBLE"}`,
     `Inflection Manual Gate: ${mt.inflectionManualGate ? "REQUIRED" : "NOT_REQUIRED"}`
+  );
+}
+const authPath = path.join(root, "reports/phase0-auth-baseline.json");
+if (fs.existsSync(authPath)) {
+  const auth = JSON.parse(fs.readFileSync(authPath, "utf8"));
+  txtLines.push(
+    "",
+    `Auth Baseline Decision: ${auth.decision}`,
+    `Auth Context Required Fields: ${auth.requiredContextFields.join(", ")}`
   );
 }
 const bundlePath = path.join(root, "reports/phase0-evidence-bundle.json");

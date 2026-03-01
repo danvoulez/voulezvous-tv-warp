@@ -32,6 +32,18 @@ export type EventType =
   | "chat.message"
   | "consent.request"
   | "consent.response";
+
+export type UserFlags = {
+  is_new_account: boolean;
+  is_quarantined: boolean;
+  is_banned: boolean;
+};
+
+export type AuthContext = {
+  user_id: string;
+  session_id: string;
+  flags: UserFlags;
+};
 `;
 
 fs.mkdirSync(path.dirname(outPath), { recursive: true });
