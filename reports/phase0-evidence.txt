@@ -1,12 +1,13 @@
 VVTV Phase 0 Evidence Report
-Generated: 2026-03-01T06:43:55.853Z
+Generated: 2026-03-01T06:46:09.701Z
 Status: PASS
-Checks: 6/6 passed
+Checks: 7/7 passed
 
 Checks:
 - config_files_present: PASS
 - contracts_present: PASS
 - types_generated: PASS
+- invariants_test_fixture_present: PASS
 - thumb_audio_disabled_rule_present: PASS
 - party_route_present: PASS
 - random_skip_min_time_present: PASS

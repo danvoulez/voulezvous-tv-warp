@@ -7,9 +7,10 @@
   "scripts": {
     "validate:config": "node ./tools/validate-config.mjs",
     "validate:contracts": "node ./tools/validate-contracts.mjs",
+    "test:invariants": "node ./tools/test-invariants.mjs",
     "generate:types": "node ./tools/generate-types.mjs",
     "check:boundaries": "node ./tools/check-boundaries.mjs",
     "evidence:phase0": "node ./tools/evidence-phase0.mjs",
-    "ci:phase0": "npm run validate:config && npm run validate:contracts && npm run generate:types && npm run check:boundaries && npm run evidence:phase0"
+    "ci:phase0": "npm run validate:config && npm run validate:contracts && npm run test:invariants && npm run generate:types && npm run check:boundaries && npm run evidence:phase0"
   }
 }

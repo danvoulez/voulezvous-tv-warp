@@ -1,0 +1,9 @@
+profiles:
+  thumb_low:
+    video:
+      width: 320
+      height: 180
+      fps: 8
+      max_bitrate_kbps: 180
+    audio:
+      enabled: true

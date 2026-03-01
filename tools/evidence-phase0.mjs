@@ -17,6 +17,7 @@ const checks = [
   { name: "config_files_present", pass: fs.existsSync(mediaConfigPath) && fs.existsSync(modeConfigPath) && fs.existsSync(costConfigPath) },
   { name: "contracts_present", pass: fs.existsSync(openApiPath) && fs.existsSync(eventsPath) },
   { name: "types_generated", pass: fs.existsSync(generatedTypesPath) },
+  { name: "invariants_test_fixture_present", pass: fs.existsSync(path.join(root, "tests/fixtures/negative/media-profiles.invalid.yaml")) && fs.existsSync(path.join(root, "tests/fixtures/negative/events.invalid.v1.json")) },
   { name: "thumb_audio_disabled_rule_present", pass: fs.readFileSync(mediaConfigPath, "utf8").includes("enabled: false") },
   { name: "party_route_present", pass: fs.readFileSync(modeConfigPath, "utf8").includes("route: /party") },
   { name: "random_skip_min_time_present", pass: fs.readFileSync(costConfigPath, "utf8").includes("min_time_before_skip_ms: 2000") }
@@ -56,6 +57,7 @@ const evidence = {
   commands: [
     "npm run validate:config",
     "npm run validate:contracts",
+    "npm run test:invariants",
     "npm run generate:types",
     "npm run check:boundaries"
   ]
