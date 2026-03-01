@@ -1,10 +1,10 @@
 {
   "phase": "0",
-  "generatedAt": "2026-03-01T06:48:23.504Z",
+  "generatedAt": "2026-03-01T06:49:26.679Z",
   "status": "pass",
   "summary": {
-    "totalChecks": 9,
-    "passedChecks": 9,
+    "totalChecks": 10,
+    "passedChecks": 10,
     "failedChecks": 0
   },
   "checks": [
@@ -22,6 +22,10 @@
     },
     {
       "name": "policy_manifest_present",
+      "pass": true
+    },
+    {
+      "name": "release_readiness_report_present",
       "pass": true
     },
     {
@@ -58,6 +62,7 @@
     "contracts/openapi/session.v1.baseline.json",
     "contracts/events/events.v1.baseline.json",
     "policies/autonomy-policy.v1.json",
+    "reports/phase0-readiness.json",
     "packages/sdk/generated/types.ts"
   ],
   "artifactHashes": [
@@ -106,6 +111,10 @@
       "sha256": "a4deefa35c829e855388e1b4b33c75d2eb5c61be0e5a760cff3f9e98ba3a47a9"
     },
     {
+      "path": "reports/phase0-readiness.json",
+      "sha256": "816c67bb02e1a392e87cd726ebd4d78ee90559c8ff3de85293b1ab02cc4f8353"
+    },
+    {
       "path": "packages/sdk/generated/types.ts",
       "sha256": "6e7077d016a63595b503f4d3395c683b1ac8cdf888538312da80f049a099965f"
     }
@@ -117,6 +126,7 @@
     "npm run check:contracts-drift",
     "npm run test:invariants",
     "npm run generate:types",
-    "npm run check:boundaries"
+    "npm run check:boundaries",
+    "npm run check:release-readiness"
   ]
 }

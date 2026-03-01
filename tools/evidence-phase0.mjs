@@ -18,6 +18,7 @@ const checks = [
   { name: "contracts_present", pass: fs.existsSync(openApiPath) && fs.existsSync(eventsPath) },
   { name: "contracts_baseline_present", pass: fs.existsSync(path.join(root, "contracts/openapi/session.v1.baseline.json")) && fs.existsSync(path.join(root, "contracts/events/events.v1.baseline.json")) },
   { name: "policy_manifest_present", pass: fs.existsSync(path.join(root, "policies/autonomy-policy.v1.json")) },
+  { name: "release_readiness_report_present", pass: fs.existsSync(path.join(root, "reports/phase0-readiness.json")) },
   { name: "types_generated", pass: fs.existsSync(generatedTypesPath) },
   { name: "invariants_test_fixture_present", pass: fs.existsSync(path.join(root, "tests/fixtures/negative/media-profiles.invalid.yaml")) && fs.existsSync(path.join(root, "tests/fixtures/negative/events.invalid.v1.json")) },
   { name: "thumb_audio_disabled_rule_present", pass: fs.readFileSync(mediaConfigPath, "utf8").includes("enabled: false") },
@@ -38,6 +39,7 @@ const artifactPaths = [
   "contracts/openapi/session.v1.baseline.json",
   "contracts/events/events.v1.baseline.json",
   "policies/autonomy-policy.v1.json",
+  "reports/phase0-readiness.json",
   "packages/sdk/generated/types.ts"
 ];
 const artifactHashes = artifactPaths.map((rel) => {
@@ -66,7 +68,8 @@ const evidence = {
     "npm run check:contracts-drift",
     "npm run test:invariants",
     "npm run generate:types",
-    "npm run check:boundaries"
+    "npm run check:boundaries",
+    "npm run check:release-readiness"
   ]
 };
 
@@ -86,6 +89,11 @@ const txtLines = [
   "Artifacts (sha256):",
   ...evidence.artifactHashes.map((a) => `- ${a.path}: ${a.sha256}`)
 ];
+const readinessPath = path.join(root, "reports/phase0-readiness.json");
+if (fs.existsSync(readinessPath)) {
+  const readiness = JSON.parse(fs.readFileSync(readinessPath, "utf8"));
+  txtLines.push("", `Release Readiness Decision: ${readiness.decision}`, `Readiness Reason: ${readiness.reason}`);
+}
 const txtOutPath = path.join(reportsDir, "phase0-evidence.txt");
 fs.writeFileSync(txtOutPath, txtLines.join("\n"), "utf8");
 console.log("[evidence:phase0] WROTE -> reports/phase0-evidence.txt");

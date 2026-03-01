@@ -1,0 +1,15 @@
+{
+  "generatedAt": "2026-03-01T06:49:26.189Z",
+  "decision": "GO",
+  "reason": "All required phase0 readiness artifacts are present.",
+  "requiredArtifacts": [
+    "config/media-profiles.yaml",
+    "config/mode-manifests.yaml",
+    "config/cost-tiers.yaml",
+    "schemas/openapi/session.v1.json",
+    "schemas/events/events.v1.json",
+    "policies/autonomy-policy.v1.json",
+    "packages/sdk/generated/types.ts"
+  ],
+  "missingArtifacts": []
+}
