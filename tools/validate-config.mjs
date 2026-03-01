@@ -5,7 +5,10 @@ const root = path.resolve(process.cwd());
 const files = [
   "config/media-profiles.yaml",
   "config/mode-manifests.yaml",
-  "config/cost-tiers.yaml"
+  "config/cost-tiers.yaml",
+  "schemas/config/media-profiles.schema.v1.json",
+  "schemas/config/mode-manifests.schema.v1.json",
+  "schemas/config/cost-tiers.schema.v1.json"
 ];
 
 for (const rel of files) {
@@ -18,6 +21,22 @@ for (const rel of files) {
 const media = fs.readFileSync(path.join(root, "config/media-profiles.yaml"), "utf8");
 const modes = fs.readFileSync(path.join(root, "config/mode-manifests.yaml"), "utf8");
 const cost = fs.readFileSync(path.join(root, "config/cost-tiers.yaml"), "utf8");
+const mediaSchema = JSON.parse(fs.readFileSync(path.join(root, "schemas/config/media-profiles.schema.v1.json"), "utf8"));
+const modeSchema = JSON.parse(fs.readFileSync(path.join(root, "schemas/config/mode-manifests.schema.v1.json"), "utf8"));
+const costSchema = JSON.parse(fs.readFileSync(path.join(root, "schemas/config/cost-tiers.schema.v1.json"), "utf8"));
+
+if (!mediaSchema?.properties?.profiles?.required?.includes("thumb_low")) {
+  console.error("[validate:config] media-profiles schema must require thumb_low");
+  process.exit(1);
+}
+if (!modeSchema?.properties?.modes?.required?.includes("party")) {
+  console.error("[validate:config] mode-manifests schema must require party");
+  process.exit(1);
+}
+if (!costSchema?.properties?.tiers?.required?.includes("COST_LOW")) {
+  console.error("[validate:config] cost-tiers schema must require COST_LOW");
+  process.exit(1);
+}
 
 function findLine(lines, pattern) {
   return lines.findIndex((l) => l.includes(pattern));

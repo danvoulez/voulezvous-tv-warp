@@ -27,6 +27,9 @@ const artifactPaths = [
   "config/media-profiles.yaml",
   "config/mode-manifests.yaml",
   "config/cost-tiers.yaml",
+  "schemas/config/media-profiles.schema.v1.json",
+  "schemas/config/mode-manifests.schema.v1.json",
+  "schemas/config/cost-tiers.schema.v1.json",
   "schemas/openapi/session.v1.json",
   "schemas/events/events.v1.json",
   "packages/sdk/generated/types.ts"
@@ -61,6 +64,22 @@ const evidence = {
 const outputPath = path.join(reportsDir, "phase0-evidence.json");
 fs.writeFileSync(outputPath, JSON.stringify(evidence, null, 2), "utf8");
 console.log(`[evidence:phase0] ${evidence.status.toUpperCase()} -> reports/phase0-evidence.json`);
+
+const txtLines = [
+  "VVTV Phase 0 Evidence Report",
+  `Generated: ${evidence.generatedAt}`,
+  `Status: ${evidence.status.toUpperCase()}`,
+  `Checks: ${evidence.summary.passedChecks}/${evidence.summary.totalChecks} passed`,
+  "",
+  "Checks:",
+  ...evidence.checks.map((c) => `- ${c.name}: ${c.pass ? "PASS" : "FAIL"}`),
+  "",
+  "Artifacts (sha256):",
+  ...evidence.artifactHashes.map((a) => `- ${a.path}: ${a.sha256}`)
+];
+const txtOutPath = path.join(reportsDir, "phase0-evidence.txt");
+fs.writeFileSync(txtOutPath, txtLines.join("\n"), "utf8");
+console.log("[evidence:phase0] WROTE -> reports/phase0-evidence.txt");
 
 if (failed.length > 0) {
   process.exit(1);

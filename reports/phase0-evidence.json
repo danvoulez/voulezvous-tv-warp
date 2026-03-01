@@ -1,6 +1,6 @@
 {
   "phase": "0",
-  "generatedAt": "2026-03-01T06:40:45.989Z",
+  "generatedAt": "2026-03-01T06:43:55.853Z",
   "status": "pass",
   "summary": {
     "totalChecks": 6,
@@ -38,6 +38,9 @@
     "config/media-profiles.yaml",
     "config/mode-manifests.yaml",
     "config/cost-tiers.yaml",
+    "schemas/config/media-profiles.schema.v1.json",
+    "schemas/config/mode-manifests.schema.v1.json",
+    "schemas/config/cost-tiers.schema.v1.json",
     "schemas/openapi/session.v1.json",
     "schemas/events/events.v1.json",
     "packages/sdk/generated/types.ts"
@@ -54,6 +57,18 @@
     {
       "path": "config/cost-tiers.yaml",
       "sha256": "049935b9ed730716a696c7c8b7ff752af7de7164575b48bd477c45d588606681"
+    },
+    {
+      "path": "schemas/config/media-profiles.schema.v1.json",
+      "sha256": "50ff7023f9a21fd2b266ae9a3e92b39c7be2727106d72da707fb88263848f36c"
+    },
+    {
+      "path": "schemas/config/mode-manifests.schema.v1.json",
+      "sha256": "6f945fa942acb5ab1dd6a5e0591f84820ffce2fc29ef28a835c5952dac3150a7"
+    },
+    {
+      "path": "schemas/config/cost-tiers.schema.v1.json",
+      "sha256": "5a2d849dc73a866fdc9cc4e13526c6495524f33811f444882e62f1da66e66c68"
     },
     {
       "path": "schemas/openapi/session.v1.json",

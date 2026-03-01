@@ -1,0 +1,23 @@
+VVTV Phase 0 Evidence Report
+Generated: 2026-03-01T06:43:55.853Z
+Status: PASS
+Checks: 6/6 passed
+
+Checks:
+- config_files_present: PASS
+- contracts_present: PASS
+- types_generated: PASS
+- thumb_audio_disabled_rule_present: PASS
+- party_route_present: PASS
+- random_skip_min_time_present: PASS
+
+Artifacts (sha256):
+- config/media-profiles.yaml: b7e03e223df39714ab6afafd5c9d41647945d125ed5629145e5e36ff77cf9be4
+- config/mode-manifests.yaml: 6abadfb7a51882e19dee6071198384e1d475b1350dc845e2f11896021cdea985
+- config/cost-tiers.yaml: 049935b9ed730716a696c7c8b7ff752af7de7164575b48bd477c45d588606681
+- schemas/config/media-profiles.schema.v1.json: 50ff7023f9a21fd2b266ae9a3e92b39c7be2727106d72da707fb88263848f36c
+- schemas/config/mode-manifests.schema.v1.json: 6f945fa942acb5ab1dd6a5e0591f84820ffce2fc29ef28a835c5952dac3150a7
+- schemas/config/cost-tiers.schema.v1.json: 5a2d849dc73a866fdc9cc4e13526c6495524f33811f444882e62f1da66e66c68
+- schemas/openapi/session.v1.json: 25b85f79b667555b66869a0c4ee402e60128627d6e5997026922d4997990953e
+- schemas/events/events.v1.json: 46e40ab8ae1ab976ebfff8a9948fcf4a58187f055fba968864fc12f64227a7be
+- packages/sdk/generated/types.ts: 6e7077d016a63595b503f4d3395c683b1ac8cdf888538312da80f049a099965f

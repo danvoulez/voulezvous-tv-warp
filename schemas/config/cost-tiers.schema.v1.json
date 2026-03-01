@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Cost Tiers Config Schema v1",
+  "type": "object",
+  "required": ["tiers"],
+  "properties": {
+    "tiers": {
+      "type": "object",
+      "required": ["COST_LOW", "QUARANTINE"],
+      "properties": {
+        "COST_LOW": { "type": "object" },
+        "QUARANTINE": { "type": "object" }
+      }
+    }
+  }
+}
