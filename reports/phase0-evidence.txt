@@ -1,7 +1,7 @@
 VVTV Phase 0 Evidence Report
-Generated: 2026-03-01T06:52:03.458Z
+Generated: 2026-03-01T06:54:50.143Z
 Status: PASS
-Checks: 11/11 passed
+Checks: 12/12 passed
 
 Checks:
 - config_files_present: PASS
@@ -10,6 +10,7 @@ Checks:
 - policy_manifest_present: PASS
 - release_readiness_report_present: PASS
 - merge_train_report_present: PASS
+- evidence_bundle_report_present: PASS
 - types_generated: PASS
 - invariants_test_fixture_present: PASS
 - thumb_audio_disabled_rule_present: PASS
@@ -28,8 +29,9 @@ Artifacts (sha256):
 - contracts/openapi/session.v1.baseline.json: 25b85f79b667555b66869a0c4ee402e60128627d6e5997026922d4997990953e
 - contracts/events/events.v1.baseline.json: 46e40ab8ae1ab976ebfff8a9948fcf4a58187f055fba968864fc12f64227a7be
 - policies/autonomy-policy.v1.json: a4deefa35c829e855388e1b4b33c75d2eb5c61be0e5a760cff3f9e98ba3a47a9
-- reports/phase0-readiness.json: a01dd134f8ebde91b4f8a41c117fc2f3cfe56aa50b0218aafd1e8cb9de8d9a74
-- reports/phase0-merge-train.json: e5d8f61e354b5cb13205e95984737a50ba27634f04be96205fe463ef9b964241
+- reports/phase0-readiness.json: 1ff8fb1b706213ab1313ea680834ea9d6bf791b3eac19b2697199ed9118ce9ee
+- reports/phase0-merge-train.json: 79c43810c6c5e3d139ece01d33cf0cc228431ed37fd6326e5e70d2c6e0822f2f
+- reports/phase0-evidence-bundle.json: 150e44a1291760ca547885cea9c63f17ac56740887a2832804744cd2c15aa59e
 - packages/sdk/generated/types.ts: 6e7077d016a63595b503f4d3395c683b1ac8cdf888538312da80f049a099965f
 
 Release Readiness Decision: GO
@@ -38,3 +40,6 @@ Readiness Reason: All required phase0 readiness artifacts are present.
 Merge-Train Status: GREEN
 Auto-Merge Eligibility: ELIGIBLE
 Inflection Manual Gate: NOT_REQUIRED
+
+Evidence Bundle Decision: GO
+Evidence Bundle Completeness: 100%

@@ -1,0 +1,3 @@
+Phase 0 release approver signoff placeholder
+- Approver: Dan Voulez
+- Decision: Approved for Phase 0 scaffold baseline continuation

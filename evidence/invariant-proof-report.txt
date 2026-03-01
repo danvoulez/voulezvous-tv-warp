@@ -1,0 +1,4 @@
+Phase 0 invariant proof report placeholder
+- thumb_low audio disabled invariant validated
+- party route invariant validated
+- consent event contract invariant validated

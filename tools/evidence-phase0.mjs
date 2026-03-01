@@ -20,6 +20,7 @@ const checks = [
   { name: "policy_manifest_present", pass: fs.existsSync(path.join(root, "policies/autonomy-policy.v1.json")) },
   { name: "release_readiness_report_present", pass: fs.existsSync(path.join(root, "reports/phase0-readiness.json")) },
   { name: "merge_train_report_present", pass: fs.existsSync(path.join(root, "reports/phase0-merge-train.json")) },
+  { name: "evidence_bundle_report_present", pass: fs.existsSync(path.join(root, "reports/phase0-evidence-bundle.json")) },
   { name: "types_generated", pass: fs.existsSync(generatedTypesPath) },
   { name: "invariants_test_fixture_present", pass: fs.existsSync(path.join(root, "tests/fixtures/negative/media-profiles.invalid.yaml")) && fs.existsSync(path.join(root, "tests/fixtures/negative/events.invalid.v1.json")) },
   { name: "thumb_audio_disabled_rule_present", pass: fs.readFileSync(mediaConfigPath, "utf8").includes("enabled: false") },
@@ -42,6 +43,7 @@ const artifactPaths = [
   "policies/autonomy-policy.v1.json",
   "reports/phase0-readiness.json",
   "reports/phase0-merge-train.json",
+  "reports/phase0-evidence-bundle.json",
   "packages/sdk/generated/types.ts"
 ];
 const artifactHashes = artifactPaths.map((rel) => {
@@ -72,7 +74,8 @@ const evidence = {
     "npm run generate:types",
     "npm run check:boundaries",
     "npm run check:release-readiness",
-    "npm run check:merge-train"
+    "npm run check:merge-train",
+    "npm run check:evidence-bundle"
   ]
 };
 
@@ -105,6 +108,15 @@ if (fs.existsSync(mergeTrainPath)) {
     `Merge-Train Status: ${mt.mergeTrainStatus}`,
     `Auto-Merge Eligibility: ${mt.autoMergeEligible ? "ELIGIBLE" : "NOT_ELIGIBLE"}`,
     `Inflection Manual Gate: ${mt.inflectionManualGate ? "REQUIRED" : "NOT_REQUIRED"}`
+  );
+}
+const bundlePath = path.join(root, "reports/phase0-evidence-bundle.json");
+if (fs.existsSync(bundlePath)) {
+  const bundle = JSON.parse(fs.readFileSync(bundlePath, "utf8"));
+  txtLines.push(
+    "",
+    `Evidence Bundle Decision: ${bundle.decision}`,
+    `Evidence Bundle Completeness: ${bundle.completenessPercent}%`
   );
 }
 const txtOutPath = path.join(reportsDir, "phase0-evidence.txt");

@@ -1,10 +1,10 @@
 {
   "phase": "0",
-  "generatedAt": "2026-03-01T06:52:03.458Z",
+  "generatedAt": "2026-03-01T06:54:50.143Z",
   "status": "pass",
   "summary": {
-    "totalChecks": 11,
-    "passedChecks": 11,
+    "totalChecks": 12,
+    "passedChecks": 12,
     "failedChecks": 0
   },
   "checks": [
@@ -30,6 +30,10 @@
     },
     {
       "name": "merge_train_report_present",
+      "pass": true
+    },
+    {
+      "name": "evidence_bundle_report_present",
       "pass": true
     },
     {
@@ -68,6 +72,7 @@
     "policies/autonomy-policy.v1.json",
     "reports/phase0-readiness.json",
     "reports/phase0-merge-train.json",
+    "reports/phase0-evidence-bundle.json",
     "packages/sdk/generated/types.ts"
   ],
   "artifactHashes": [
@@ -117,11 +122,15 @@
     },
     {
       "path": "reports/phase0-readiness.json",
-      "sha256": "a01dd134f8ebde91b4f8a41c117fc2f3cfe56aa50b0218aafd1e8cb9de8d9a74"
+      "sha256": "1ff8fb1b706213ab1313ea680834ea9d6bf791b3eac19b2697199ed9118ce9ee"
     },
     {
       "path": "reports/phase0-merge-train.json",
-      "sha256": "e5d8f61e354b5cb13205e95984737a50ba27634f04be96205fe463ef9b964241"
+      "sha256": "79c43810c6c5e3d139ece01d33cf0cc228431ed37fd6326e5e70d2c6e0822f2f"
+    },
+    {
+      "path": "reports/phase0-evidence-bundle.json",
+      "sha256": "150e44a1291760ca547885cea9c63f17ac56740887a2832804744cd2c15aa59e"
     },
     {
       "path": "packages/sdk/generated/types.ts",
@@ -137,6 +146,7 @@
     "npm run generate:types",
     "npm run check:boundaries",
     "npm run check:release-readiness",
-    "npm run check:merge-train"
+    "npm run check:merge-train",
+    "npm run check:evidence-bundle"
   ]
 }

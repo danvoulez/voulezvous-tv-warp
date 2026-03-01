@@ -1,0 +1,33 @@
+{
+  "generatedAt": "2026-03-01T06:54:49.636Z",
+  "decision": "GO",
+  "completenessPercent": 100,
+  "requiredArtifacts": [
+    {
+      "name": "ci_links",
+      "path": "evidence/ci-links.txt",
+      "present": true
+    },
+    {
+      "name": "invariant_proof_report",
+      "path": "evidence/invariant-proof-report.txt",
+      "present": true
+    },
+    {
+      "name": "slo_latency_snapshot",
+      "path": "evidence/slo-latency-snapshot.txt",
+      "present": true
+    },
+    {
+      "name": "incident_rollback_drill",
+      "path": "evidence/incident-rollback-drill.txt",
+      "present": true
+    },
+    {
+      "name": "release_approver_signoff",
+      "path": "evidence/release-approver-signoff.txt",
+      "present": true
+    }
+  ],
+  "missing": []
+}
