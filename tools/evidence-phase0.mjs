@@ -22,6 +22,7 @@ const checks = [
   { name: "merge_train_report_present", pass: fs.existsSync(path.join(root, "reports/phase0-merge-train.json")) },
   { name: "evidence_bundle_report_present", pass: fs.existsSync(path.join(root, "reports/phase0-evidence-bundle.json")) },
   { name: "auth_baseline_report_present", pass: fs.existsSync(path.join(root, "reports/phase0-auth-baseline.json")) },
+  { name: "runtime_guards_report_present", pass: fs.existsSync(path.join(root, "reports/phase0-runtime-guards.json")) },
   { name: "types_generated", pass: fs.existsSync(generatedTypesPath) },
   { name: "invariants_test_fixture_present", pass: fs.existsSync(path.join(root, "tests/fixtures/negative/media-profiles.invalid.yaml")) && fs.existsSync(path.join(root, "tests/fixtures/negative/events.invalid.v1.json")) },
   { name: "thumb_audio_disabled_rule_present", pass: fs.readFileSync(mediaConfigPath, "utf8").includes("enabled: false") },
@@ -46,6 +47,7 @@ const artifactPaths = [
   "reports/phase0-merge-train.json",
   "reports/phase0-evidence-bundle.json",
   "reports/phase0-auth-baseline.json",
+  "reports/phase0-runtime-guards.json",
   "packages/sdk/generated/types.ts"
 ];
 const artifactHashes = artifactPaths.map((rel) => {
@@ -74,6 +76,7 @@ const evidence = {
     "npm run check:contracts-drift",
     "npm run test:invariants",
     "npm run test:auth-baseline",
+    "npm run test:runtime-guards",
     "npm run generate:types",
     "npm run check:boundaries",
     "npm run check:release-readiness",
@@ -120,6 +123,15 @@ if (fs.existsSync(authPath)) {
     "",
     `Auth Baseline Decision: ${auth.decision}`,
     `Auth Context Required Fields: ${auth.requiredContextFields.join(", ")}`
+  );
+}
+const guardsPath = path.join(root, "reports/phase0-runtime-guards.json");
+if (fs.existsSync(guardsPath)) {
+  const guards = JSON.parse(fs.readFileSync(guardsPath, "utf8"));
+  txtLines.push(
+    "",
+    `Runtime Guards Decision: ${guards.decision}`,
+    `Circuit Breaker Triggered in Test: ${guards.circuitBreakerTriggered ? "YES" : "NO"}`
   );
 }
 const bundlePath = path.join(root, "reports/phase0-evidence-bundle.json");

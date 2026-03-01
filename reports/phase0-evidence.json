@@ -1,10 +1,10 @@
 {
   "phase": "0",
-  "generatedAt": "2026-03-01T07:37:50.382Z",
+  "generatedAt": "2026-03-01T07:43:44.587Z",
   "status": "pass",
   "summary": {
-    "totalChecks": 13,
-    "passedChecks": 13,
+    "totalChecks": 14,
+    "passedChecks": 14,
     "failedChecks": 0
   },
   "checks": [
@@ -38,6 +38,10 @@
     },
     {
       "name": "auth_baseline_report_present",
+      "pass": true
+    },
+    {
+      "name": "runtime_guards_report_present",
       "pass": true
     },
     {
@@ -78,6 +82,7 @@
     "reports/phase0-merge-train.json",
     "reports/phase0-evidence-bundle.json",
     "reports/phase0-auth-baseline.json",
+    "reports/phase0-runtime-guards.json",
     "packages/sdk/generated/types.ts"
   ],
   "artifactHashes": [
@@ -127,19 +132,23 @@
     },
     {
       "path": "reports/phase0-readiness.json",
-      "sha256": "59a26964b98188d467c32f1e254a4009ae75e428673487cee28a49f343006ce7"
+      "sha256": "f46a8e8981b95ceeeb684837a940b22248d742d2ddb800b1b8cbba463fb7fa2f"
     },
     {
       "path": "reports/phase0-merge-train.json",
-      "sha256": "7e4d40c504f3a5e553cc90a66703ab028535ad2dc7f2cadc51855615b2ca650f"
+      "sha256": "43d7a791150f192763c5a6730ba4eb581b38b81dae11302d2801fcc72dad72d8"
     },
     {
       "path": "reports/phase0-evidence-bundle.json",
-      "sha256": "cb2f9313596b80f62be99ebb5713c5e3ac98b882cfaa91c430df134c1bf2c95f"
+      "sha256": "2f2200c112d71f4849cf11fb85e76128190b252dde37727532a4b345f78f5b69"
     },
     {
       "path": "reports/phase0-auth-baseline.json",
-      "sha256": "26a75d42862537a56de7669a786b92620250f23a392b38c21b86e02a346cf818"
+      "sha256": "c5429a1b84bbc72e0fc949752b5ad23de907f281d60d9d5fb6797402a3c48a7e"
+    },
+    {
+      "path": "reports/phase0-runtime-guards.json",
+      "sha256": "1ab0ab4c49181770f41c4692caf4ff02d6f7a41b77db76409c84d09a5887dffa"
     },
     {
       "path": "packages/sdk/generated/types.ts",
@@ -153,6 +162,7 @@
     "npm run check:contracts-drift",
     "npm run test:invariants",
     "npm run test:auth-baseline",
+    "npm run test:runtime-guards",
     "npm run generate:types",
     "npm run check:boundaries",
     "npm run check:release-readiness",

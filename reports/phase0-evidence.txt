@@ -1,7 +1,7 @@
 VVTV Phase 0 Evidence Report
-Generated: 2026-03-01T07:37:50.382Z
+Generated: 2026-03-01T07:43:44.587Z
 Status: PASS
-Checks: 13/13 passed
+Checks: 14/14 passed
 
 Checks:
 - config_files_present: PASS
@@ -12,6 +12,7 @@ Checks:
 - merge_train_report_present: PASS
 - evidence_bundle_report_present: PASS
 - auth_baseline_report_present: PASS
+- runtime_guards_report_present: PASS
 - types_generated: PASS
 - invariants_test_fixture_present: PASS
 - thumb_audio_disabled_rule_present: PASS
@@ -30,10 +31,11 @@ Artifacts (sha256):
 - contracts/openapi/session.v1.baseline.json: 25b85f79b667555b66869a0c4ee402e60128627d6e5997026922d4997990953e
 - contracts/events/events.v1.baseline.json: 46e40ab8ae1ab976ebfff8a9948fcf4a58187f055fba968864fc12f64227a7be
 - policies/autonomy-policy.v1.json: a4deefa35c829e855388e1b4b33c75d2eb5c61be0e5a760cff3f9e98ba3a47a9
-- reports/phase0-readiness.json: 59a26964b98188d467c32f1e254a4009ae75e428673487cee28a49f343006ce7
-- reports/phase0-merge-train.json: 7e4d40c504f3a5e553cc90a66703ab028535ad2dc7f2cadc51855615b2ca650f
-- reports/phase0-evidence-bundle.json: cb2f9313596b80f62be99ebb5713c5e3ac98b882cfaa91c430df134c1bf2c95f
-- reports/phase0-auth-baseline.json: 26a75d42862537a56de7669a786b92620250f23a392b38c21b86e02a346cf818
+- reports/phase0-readiness.json: f46a8e8981b95ceeeb684837a940b22248d742d2ddb800b1b8cbba463fb7fa2f
+- reports/phase0-merge-train.json: 43d7a791150f192763c5a6730ba4eb581b38b81dae11302d2801fcc72dad72d8
+- reports/phase0-evidence-bundle.json: 2f2200c112d71f4849cf11fb85e76128190b252dde37727532a4b345f78f5b69
+- reports/phase0-auth-baseline.json: c5429a1b84bbc72e0fc949752b5ad23de907f281d60d9d5fb6797402a3c48a7e
+- reports/phase0-runtime-guards.json: 1ab0ab4c49181770f41c4692caf4ff02d6f7a41b77db76409c84d09a5887dffa
 - packages/sdk/generated/types.ts: a5ed97bca1e0d82d8e2d276f4c705d24efa89318eed5a70f330b2f5a5456c9b1
 
 Release Readiness Decision: GO
@@ -45,6 +47,9 @@ Inflection Manual Gate: NOT_REQUIRED
 
 Auth Baseline Decision: GO
 Auth Context Required Fields: user_id, session_id, flags.is_new_account, flags.is_quarantined, flags.is_banned
+
+Runtime Guards Decision: GO
+Circuit Breaker Triggered in Test: YES
 
 Evidence Bundle Decision: GO
 Evidence Bundle Completeness: 100%
