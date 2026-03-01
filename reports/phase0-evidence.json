@@ -1,10 +1,10 @@
 {
   "phase": "0",
-  "generatedAt": "2026-03-01T06:46:09.701Z",
+  "generatedAt": "2026-03-01T06:47:23.161Z",
   "status": "pass",
   "summary": {
-    "totalChecks": 7,
-    "passedChecks": 7,
+    "totalChecks": 8,
+    "passedChecks": 8,
     "failedChecks": 0
   },
   "checks": [
@@ -14,6 +14,10 @@
     },
     {
       "name": "contracts_present",
+      "pass": true
+    },
+    {
+      "name": "contracts_baseline_present",
       "pass": true
     },
     {
@@ -47,6 +51,8 @@
     "schemas/config/cost-tiers.schema.v1.json",
     "schemas/openapi/session.v1.json",
     "schemas/events/events.v1.json",
+    "contracts/openapi/session.v1.baseline.json",
+    "contracts/events/events.v1.baseline.json",
     "packages/sdk/generated/types.ts"
   ],
   "artifactHashes": [
@@ -83,6 +89,14 @@
       "sha256": "46e40ab8ae1ab976ebfff8a9948fcf4a58187f055fba968864fc12f64227a7be"
     },
     {
+      "path": "contracts/openapi/session.v1.baseline.json",
+      "sha256": "25b85f79b667555b66869a0c4ee402e60128627d6e5997026922d4997990953e"
+    },
+    {
+      "path": "contracts/events/events.v1.baseline.json",
+      "sha256": "46e40ab8ae1ab976ebfff8a9948fcf4a58187f055fba968864fc12f64227a7be"
+    },
+    {
       "path": "packages/sdk/generated/types.ts",
       "sha256": "6e7077d016a63595b503f4d3395c683b1ac8cdf888538312da80f049a099965f"
     }
@@ -90,6 +104,7 @@
   "commands": [
     "npm run validate:config",
     "npm run validate:contracts",
+    "npm run check:contracts-drift",
     "npm run test:invariants",
     "npm run generate:types",
     "npm run check:boundaries"

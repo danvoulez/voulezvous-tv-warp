@@ -1,11 +1,12 @@
 VVTV Phase 0 Evidence Report
-Generated: 2026-03-01T06:46:09.701Z
+Generated: 2026-03-01T06:47:23.161Z
 Status: PASS
-Checks: 7/7 passed
+Checks: 8/8 passed
 
 Checks:
 - config_files_present: PASS
 - contracts_present: PASS
+- contracts_baseline_present: PASS
 - types_generated: PASS
 - invariants_test_fixture_present: PASS
 - thumb_audio_disabled_rule_present: PASS
@@ -21,4 +22,6 @@ Artifacts (sha256):
 - schemas/config/cost-tiers.schema.v1.json: 5a2d849dc73a866fdc9cc4e13526c6495524f33811f444882e62f1da66e66c68
 - schemas/openapi/session.v1.json: 25b85f79b667555b66869a0c4ee402e60128627d6e5997026922d4997990953e
 - schemas/events/events.v1.json: 46e40ab8ae1ab976ebfff8a9948fcf4a58187f055fba968864fc12f64227a7be
+- contracts/openapi/session.v1.baseline.json: 25b85f79b667555b66869a0c4ee402e60128627d6e5997026922d4997990953e
+- contracts/events/events.v1.baseline.json: 46e40ab8ae1ab976ebfff8a9948fcf4a58187f055fba968864fc12f64227a7be
 - packages/sdk/generated/types.ts: 6e7077d016a63595b503f4d3395c683b1ac8cdf888538312da80f049a099965f
