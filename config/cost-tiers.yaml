@@ -1,0 +1,11 @@
+tiers:
+  COST_LOW:
+    random:
+      max_matches_per_hour: 60
+      max_skips_per_minute: 12
+      min_time_before_skip_ms: 2000
+  QUARANTINE:
+    random:
+      max_matches_per_hour: 20
+      max_skips_per_minute: 8
+      min_time_before_skip_ms: 2000

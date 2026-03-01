@@ -1,0 +1,29 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "VVTV Session API",
+    "version": "v1"
+  },
+  "paths": {
+    "/sessions": {
+      "post": {
+        "summary": "Create a session",
+        "responses": {
+          "200": {
+            "description": "Session created"
+          }
+        }
+      }
+    },
+    "/sessions/transition": {
+      "post": {
+        "summary": "Transition session",
+        "responses": {
+          "200": {
+            "description": "Session transitioned"
+          }
+        }
+      }
+    }
+  }
+}

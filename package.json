@@ -1,0 +1,15 @@
+{
+  "name": "vvtv-platform",
+  "version": "0.1.0",
+  "private": true,
+  "description": "VVTV / Voulezvous Platform - Phase 0 foundation scaffold",
+  "type": "module",
+  "scripts": {
+    "validate:config": "node ./tools/validate-config.mjs",
+    "validate:contracts": "node ./tools/validate-contracts.mjs",
+    "generate:types": "node ./tools/generate-types.mjs",
+    "check:boundaries": "node ./tools/check-boundaries.mjs",
+    "evidence:phase0": "node ./tools/evidence-phase0.mjs",
+    "ci:phase0": "npm run validate:config && npm run validate:contracts && npm run generate:types && npm run check:boundaries && npm run evidence:phase0"
+  }
+}

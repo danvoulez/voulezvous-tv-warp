@@ -1,0 +1,46 @@
+{
+  "phase": "0",
+  "generatedAt": "2026-03-01T06:33:41.230Z",
+  "status": "pass",
+  "checks": [
+    {
+      "name": "config_files_present",
+      "pass": true
+    },
+    {
+      "name": "contracts_present",
+      "pass": true
+    },
+    {
+      "name": "types_generated",
+      "pass": true
+    },
+    {
+      "name": "thumb_audio_disabled_rule_present",
+      "pass": true
+    },
+    {
+      "name": "party_route_present",
+      "pass": true
+    },
+    {
+      "name": "random_skip_min_time_present",
+      "pass": true
+    }
+  ],
+  "failedChecks": [],
+  "artifacts": [
+    "config/media-profiles.yaml",
+    "config/mode-manifests.yaml",
+    "config/cost-tiers.yaml",
+    "schemas/openapi/session.v1.json",
+    "schemas/events/events.v1.json",
+    "packages/sdk/generated/types.ts"
+  ],
+  "commands": [
+    "npm run validate:config",
+    "npm run validate:contracts",
+    "npm run generate:types",
+    "npm run check:boundaries"
+  ]
+}
