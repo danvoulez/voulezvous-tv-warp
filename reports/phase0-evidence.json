@@ -1,10 +1,10 @@
 {
   "phase": "0",
-  "generatedAt": "2026-03-01T06:47:23.161Z",
+  "generatedAt": "2026-03-01T06:48:23.504Z",
   "status": "pass",
   "summary": {
-    "totalChecks": 8,
-    "passedChecks": 8,
+    "totalChecks": 9,
+    "passedChecks": 9,
     "failedChecks": 0
   },
   "checks": [
@@ -18,6 +18,10 @@
     },
     {
       "name": "contracts_baseline_present",
+      "pass": true
+    },
+    {
+      "name": "policy_manifest_present",
       "pass": true
     },
     {
@@ -53,6 +57,7 @@
     "schemas/events/events.v1.json",
     "contracts/openapi/session.v1.baseline.json",
     "contracts/events/events.v1.baseline.json",
+    "policies/autonomy-policy.v1.json",
     "packages/sdk/generated/types.ts"
   ],
   "artifactHashes": [
@@ -97,6 +102,10 @@
       "sha256": "46e40ab8ae1ab976ebfff8a9948fcf4a58187f055fba968864fc12f64227a7be"
     },
     {
+      "path": "policies/autonomy-policy.v1.json",
+      "sha256": "a4deefa35c829e855388e1b4b33c75d2eb5c61be0e5a760cff3f9e98ba3a47a9"
+    },
+    {
       "path": "packages/sdk/generated/types.ts",
       "sha256": "6e7077d016a63595b503f4d3395c683b1ac8cdf888538312da80f049a099965f"
     }
@@ -104,6 +113,7 @@
   "commands": [
     "npm run validate:config",
     "npm run validate:contracts",
+    "npm run validate:policy",
     "npm run check:contracts-drift",
     "npm run test:invariants",
     "npm run generate:types",

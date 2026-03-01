@@ -1,0 +1,25 @@
+{
+  "version": "v1",
+  "execution_mode": "continuous_24_7_autonomous",
+  "merge_policy": {
+    "default": "auto_merge_when_all_gates_pass",
+    "manual_required_for": [
+      "first_production_exposure_per_major_flow",
+      "consent_auth_moderation_isolation_changes",
+      "high_critical_override_changes",
+      "first_rollout_new_autonomous_policy_engine",
+      "incident_mode_or_rollback_policy_change"
+    ]
+  },
+  "gates_required": [
+    "validate_config",
+    "validate_contracts",
+    "validate_policy",
+    "contracts_drift",
+    "invariants",
+    "generate_types",
+    "boundaries",
+    "evidence"
+  ],
+  "dead_man_switch_required": true
+}

@@ -17,6 +17,7 @@ const checks = [
   { name: "config_files_present", pass: fs.existsSync(mediaConfigPath) && fs.existsSync(modeConfigPath) && fs.existsSync(costConfigPath) },
   { name: "contracts_present", pass: fs.existsSync(openApiPath) && fs.existsSync(eventsPath) },
   { name: "contracts_baseline_present", pass: fs.existsSync(path.join(root, "contracts/openapi/session.v1.baseline.json")) && fs.existsSync(path.join(root, "contracts/events/events.v1.baseline.json")) },
+  { name: "policy_manifest_present", pass: fs.existsSync(path.join(root, "policies/autonomy-policy.v1.json")) },
   { name: "types_generated", pass: fs.existsSync(generatedTypesPath) },
   { name: "invariants_test_fixture_present", pass: fs.existsSync(path.join(root, "tests/fixtures/negative/media-profiles.invalid.yaml")) && fs.existsSync(path.join(root, "tests/fixtures/negative/events.invalid.v1.json")) },
   { name: "thumb_audio_disabled_rule_present", pass: fs.readFileSync(mediaConfigPath, "utf8").includes("enabled: false") },
@@ -36,6 +37,7 @@ const artifactPaths = [
   "schemas/events/events.v1.json",
   "contracts/openapi/session.v1.baseline.json",
   "contracts/events/events.v1.baseline.json",
+  "policies/autonomy-policy.v1.json",
   "packages/sdk/generated/types.ts"
 ];
 const artifactHashes = artifactPaths.map((rel) => {
@@ -60,6 +62,7 @@ const evidence = {
   commands: [
     "npm run validate:config",
     "npm run validate:contracts",
+    "npm run validate:policy",
     "npm run check:contracts-drift",
     "npm run test:invariants",
     "npm run generate:types",
